@@ -19,13 +19,13 @@ Validation commands: npm run lint && npm test && npm run build
 Promotion path: local -> dev -> uat -> staging
 Promotion auto deploy: true
 
-Execution ledger: passed
-Artifact: /home/ubuntu/2026/product-aidlc/projects/project-cyber-heist/.aurelia/runs/tunnel_400b8810-b009-41fb-847d-4096b27fca5c-7dd86a37.md
-Lint: passed
-Build: passed
-Test: passed
+Execution ledger: failed
+Artifact: /home/ubuntu/2026/product-aidlc/projects/project-cyber-heist/.aurelia/runs/tunnel_4ded5bb9-c6dc-4725-8070-cfbfdec5e517-9f46cc4e.md
+Lint: skipped
+Build: failed
+Test: skipped
 
-Captured filesystem evidence and executed configured quality gates. Status: passed. Changed files: [".env.example",".gitignore","README.md","aida_prompt.md","client/Dockerfile","client/index.html","client/nginx.conf","client/package.json","client/src/App.css","client/src/App.tsx","client/src/__tests__/App.test.tsx","client/src/api.ts","client/src/main.tsx","client/src/types.ts","client/tsconfig.json","client/vite.config.ts","db/init.sql","docker-compose.yml","package-lock.json","package.json","server/Dockerfile","server/package.json","server/src/__tests__/api.test.ts","server/src/__tests__/auth.test.ts","server/src/__tests__/validation.test.ts","server/src/app.ts","server/src/auth/index.ts","server/src/db/store.ts","server/src/index.ts","server/src/routes/approvals.ts","server/src/routes/audit.ts","server/src/routes/auth.ts","server/src/routes/comments.ts","server/src/routes/projects.ts","server/src/routes/seed.ts","server/src/routes/uploads.ts","server/src/seed.ts","server/src/types/index.ts","server/src/validation/index.ts","server/tsconfig.json","vitest.config.ts"]. Lint: passed. Build: passed. Test: passed.
+Captured filesystem evidence and executed configured quality gates. Status: failed. Changed files: null. Lint: skipped. Build: failed. Test: skipped.
 
 Validation policy:
 - Unit/API tests: required
@@ -33,38 +33,12 @@ Validation policy:
 - Preview deployment before human review: required
 - Preview ownership: AIDLC deployment harness owns durable preview deployment and release URL after agent gates; coding agents must not turn routine feature work into long-running deployment work.
 
-Graph gate: passed with verified expansion. Off-graph files: client/Dockerfile, client/index.html, client/package.json, client/src/App.css, client/src/App.tsx, client/src/__tests__/App.test.tsx, client/src/api.ts, client/src/main.tsx, client/src/types.ts, client/tsconfig.json, client/vite.config.ts, db/init.sql, package.json, server/Dockerfile, server/package.json, server/src/__tests__/api.test.ts, server/src/__tests__/auth.test.ts, server/src/__tests__/validation.test.ts, server/src/app.ts, server/src/auth/index.ts, server/src/db/store.ts, server/src/index.ts, server/src/routes/approvals.ts, server/src/routes/audit.ts, server/src/routes/auth.ts, server/src/routes/comments.ts, server/src/routes/projects.ts, server/src/routes/seed.ts, server/src/routes/uploads.ts, server/src/seed.ts, server/src/types/index.ts, server/src/validation/index.ts, server/tsconfig.json, vitest.config.ts.
+Graph gate: passed. Changed source files stayed within ticket context pack `.aurelia/context/tickets/pro-3/context-pack.json`.
 
-Episode captured: 1da2a8e6-67d9-49f7-9b7f-6ba22bd0fb33
+AIDLC gate decision: ticket failed because the execution ledger status was `failed`.
+Next action: review gate evidence, fix the failing gate, then use Retry Agent Run or Reconcile Evidence. Gate statuses: lint=skipped, build=failed, test=skipped.
 
-Testing Control Plane: queued 3 targeted test gate(s). Reference: PRO-3. Open Testing Command Hub for live evidence.
-
-LOCAL preview deployment queued: 9b9548a1-3b35-4689-8f33-069ddd366bea
-Environment: local
-URL: http://aidlc.aureliacrew.com/preview/project-cyber-heist/
-Status: pending_approval
-
-[DEPLOYMENT FAILURE - LOCAL]
-Host deployment failed: Host runner exited with code 1.
-
---- HOST RUNNER OUTPUT ---
-AIDLC host runner started 2026-09-16T14:08:07.577Z
-Runner version: 2026-06-13-persistent-interactive-runtime
-Session: deploy_9b9548a1-3b35-4689-8f33-069ddd366bea
-Product dir: /home/ubuntu/2026/product-aidlc/projects/project-cyber-heist
-Job: deployment
-Tool: shell
-
-Prepared AIDLC deployment env files: /home/ubuntu/2026/product-aidlc/projects/project-cyber-heist/.env, /home/ubuntu/2026/product-aidlc/projects/project-cyber-heist/.env.aidlc
-Launching: /bin/bash "-c" "npm run build"
-
-npm error Missing script: "build"
-npm error
-npm error To see a list of scripts, run:
-npm error   npm run
-npm error A complete log of this run can be found in: /home/ubuntu/.npm/_logs/2026-09-16T14_08_07_682Z-debug-0.log
-
-Host runner exited with code 1
+Episode captured: faf08e43-cc27-49ab-8934-0d889074b175
 ```
 
 **MANDATORY INSTRUCTIONS FOR THIS RUN:**
@@ -185,8 +159,7 @@ Task-specific graph hints:
 
 ## Recent Agent Deltas
 
-- passed `PRO-2`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Feature lifecycle: clarify acceptance criteria, implement incrementally, run targeted and in...
-- passed `PRO-1`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Development-change lifecycle: implement requested change, run development gates, create a re...
+- failed `PRO-2`: Failed to initialize background TMUX session: agent tunnel service is not available
 - failed `PRO-2`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Feature lifecycle: clarify acceptance criteria, implement incrementally, run targeted and in...
 - failed `PRO-1`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Development-change lifecycle: implement requested change, run development gates, create a re...
 
