@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Production build outputs
+dist/
+build/
+client/dist/
+server/dist/
+
+# Environment files
+.env
+.env.local
+.env.aidlc
+*.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+
+# OS and Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
