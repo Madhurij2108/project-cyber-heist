@@ -1,0 +1,17 @@
+.aidlc-worktrees/
+.aurelia/
+.env
+.env.*
+!.env.example
+.env.aidlc
+node_modules/
+dist/
+build/
+*.log
+
+# AIDLC Token Conservation Exclusions
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+.git/
+.aurelia/runtime/

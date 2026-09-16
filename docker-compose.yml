@@ -1,0 +1,62 @@
+services:
+  frontend:
+    image: nginx:alpine
+    ports:
+      # Dynamic host port mapped to fixed internal port 3000
+      - "${AIDLC_FRONTEND_PORT:-0}:3000"
+    environment:
+      - PORT=3000
+      - AIDLC_ENVIRONMENT=${AIDLC_ENVIRONMENT:-local}
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:3000/ || exit 0"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    depends_on:
+      api:
+        condition: service_healthy
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      # Dynamic host port mapped to fixed internal port 8000
+      - "${AIDLC_API_PORT:-0}:8000"
+    environment:
+      - PORT=8000
+      - API_PORT=8000
+      - AIDLC_ENVIRONMENT=${AIDLC_ENVIRONMENT:-local}
+      - JWT_SECRET=${JWT_SECRET:-cyber-heist-dev-secret-key-32-chars-minimum!}
+      - DATABASE_URL=postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-cyber_heist}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16-alpine
+    ports:
+      # Dynamic host port mapped to fixed internal port 5432
+      - "${AIDLC_DB_PORT:-0}:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-cyber_heist}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-cyber_heist}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+volumes:
+  postgres_data:
