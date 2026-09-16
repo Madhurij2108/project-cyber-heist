@@ -19,13 +19,13 @@ Validation commands: npm run lint && npm test && npm run build
 Promotion path: local -> dev -> uat -> staging
 Promotion auto deploy: true
 
-Execution ledger: passed
-Artifact: /home/ubuntu/2026/product-aidlc/projects/project-cyber-heist/.aurelia/runs/tunnel_83755abc-e93a-4f33-b968-43714b4af00a-df925912.md
-Lint: passed
-Build: passed
-Test: passed
+Execution ledger: failed
+Artifact: /home/ubuntu/2026/product-aidlc/projects/project-cyber-heist/.aurelia/runs/tunnel_4498ecf0-d720-4df3-a063-a7e1499eea7f-14538db1.md
+Lint: skipped
+Build: failed
+Test: skipped
 
-Captured filesystem evidence and executed configured quality gates. Status: passed. Changed files: [".env.example",".gitignore","AGENTS.md","CLAUDE.md","CODEX.md","Dockerfile","README.md","aida_prompt.md","docker-compose.yml","docs/product/01-product-brief.md","docs/product/02-prd.md","docs/product/03-architecture.md","docs/product/04-development-protocols.md","docs/product/05-guardrails.md","docs/product/06-deployment-plan.md","docs/product/07-test-strategy.md","docs/product/08-support-runbook.md","docs/product/09-decision-log.md","docs/product/10-task-plan.md","docs/product/11-milestone-roadmap.md","docs/product/12-seed-review-data.md","package.json","src/api.test.ts","src/auth/jwt.test.ts","src/auth/jwt.ts","src/auth/middleware.test.ts","src/auth/middleware.ts","src/auth/password.test.ts","src/auth/password.ts","src/auth/rbac.test.ts","src/auth/rbac.ts","src/auth/types.ts","src/auth/validation.test.ts","src/auth/validation.ts","src/domain/store.test.ts","src/domain/store.ts","src/domain/types.ts","src/index.ts","src/runtime/config.test.ts","src/runtime/config.ts","src/seed/seed.test.ts","src/seed/seedData.ts","src/seed/seedRunner.ts","tsconfig.json"]. Lint: passed. Build: passed. Test: passed.
+Captured filesystem evidence and executed configured quality gates. Status: failed. Changed files: null. Lint: skipped. Build: failed. Test: skipped.
 
 Validation policy:
 - Unit/API tests: required
@@ -33,38 +33,12 @@ Validation policy:
 - Preview deployment before human review: required
 - Preview ownership: AIDLC deployment harness owns durable preview deployment and release URL after agent gates; coding agents must not turn routine feature work into long-running deployment work.
 
-Graph gate: passed with verified expansion. Off-graph files: Dockerfile, package.json, src/api.test.ts, src/auth/jwt.test.ts, src/auth/jwt.ts, src/auth/middleware.test.ts, src/auth/middleware.ts, src/auth/password.test.ts, src/auth/password.ts, src/auth/rbac.test.ts, src/auth/rbac.ts, src/auth/types.ts, src/auth/validation.test.ts, src/auth/validation.ts, src/domain/store.test.ts, src/domain/store.ts, src/domain/types.ts, src/index.ts, src/runtime/config.test.ts, src/runtime/config.ts, src/seed/seed.test.ts, src/seed/seedData.ts, src/seed/seedRunner.ts, tsconfig.json.
+Graph gate: passed. Changed source files stayed within ticket context pack `.aurelia/context/tickets/pro-2/context-pack.json`.
 
-Episode captured: 33fd3eda-ec8b-4bef-874f-710c4759ca41
+AIDLC gate decision: ticket failed because the execution ledger status was `failed`.
+Next action: review gate evidence, fix the failing gate, then use Retry Agent Run or Reconcile Evidence. Gate statuses: lint=skipped, build=failed, test=skipped.
 
-Testing Control Plane: queued 3 targeted test gate(s). Reference: PRO-2. Open Testing Command Hub for live evidence.
-
-LOCAL preview deployment queued: dc3113c4-066a-4643-8260-2849dcce000c
-Environment: local
-URL: http://aidlc.aureliacrew.com/preview/project-cyber-heist/
-Status: pending_approval
-
-[DEPLOYMENT FAILURE - LOCAL]
-Host deployment failed: Host runner exited with code 1.
-
---- HOST RUNNER OUTPUT ---
-AIDLC host runner started 2026-09-16T14:10:51.469Z
-Runner version: 2026-06-13-persistent-interactive-runtime
-Session: deploy_dc3113c4-066a-4643-8260-2849dcce000c
-Product dir: /home/ubuntu/2026/product-aidlc/projects/project-cyber-heist
-Job: deployment
-Tool: shell
-
-Prepared AIDLC deployment env files: /home/ubuntu/2026/product-aidlc/projects/project-cyber-heist/.env, /home/ubuntu/2026/product-aidlc/projects/project-cyber-heist/.env.aidlc
-Launching: /bin/bash "-c" "npm run build"
-
-npm error Missing script: "build"
-npm error
-npm error To see a list of scripts, run:
-npm error   npm run
-npm error A complete log of this run can be found in: /home/ubuntu/.npm/_logs/2026-09-16T14_10_51_523Z-debug-0.log
-
-Host runner exited with code 1
+Episode captured: 0c7c9a93-f7d8-4415-b05f-00e73eec4fb4
 ```
 
 **MANDATORY INSTRUCTIONS FOR THIS RUN:**
@@ -185,8 +159,8 @@ Task-specific graph hints:
 
 ## Recent Agent Deltas
 
-- passed `PRO-3`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Feature lifecycle: clarify acceptance criteria, implement incrementally, run targeted and in...
-- passed `PRO-1`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Development-change lifecycle: implement requested change, run development gates, create a re...
+- failed `PRO-3`: Failed to initialize background TMUX session: agent tunnel service is not available
+- failed `PRO-3`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Feature lifecycle: clarify acceptance criteria, implement incrementally, run targeted and in...
 - failed `PRO-1`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Development-change lifecycle: implement requested change, run development gates, create a re...
 
 Ticket: PRO-2
