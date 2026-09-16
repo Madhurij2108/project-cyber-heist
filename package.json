@@ -1,0 +1,33 @@
+{
+  "name": "project-cyber-heist",
+  "version": "0.1.0",
+  "description": "Containerized cyber heist planning and operations platform with auth, RBAC, approval workflows, and audit logging",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tsc --noEmit",
+    "test": "npm run build && node --test \"dist/**/*.test.js\" \"dist/*.test.js\"",
+    "seed": "npm run build && node dist/seed/seedRunner.js",
+    "seed:reset": "npm run build && node dist/seed/seedRunner.js --reset",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.5.5",
+    "typescript": "^5.6.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "author": "Project Cyber Heist Team",
+  "license": "ISC"
+}
